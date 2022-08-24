@@ -1,16 +1,7 @@
-FROM node:16
-
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-
+FROM node:lts
+WORKDIR /app
+COPY package.json /app
 RUN npm install
-
-COPY . .
-
+COPY . /app
+CMD node server.js
 EXPOSE 3001
-
-RUN npm start
-
-# Execução
-CMD ["npm", "start"]

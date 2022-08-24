@@ -1,16 +1,11 @@
 version: '3'
 services:
-  express:
-    environment:
-      - NODE_ENV=development
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - ./:/usr/src/app
-    container_name: express
-    expose:
-      - '3000'
+  api:
+    image: express-app
+    build: .
     ports:
-      - '3000:3000'
-    command: npm start
+      - "3001:3001"
+
+  web-cli:
+    image: express-app
+    command: sh
