@@ -7,6 +7,8 @@ module.exports = (app) => {
 
   router.get("/", person.findAll);
 
+  router.get("/all", person.findAllPerson);
+
   router.get("/:id", person.findOne);
 
   router.put("/:id", person.update);

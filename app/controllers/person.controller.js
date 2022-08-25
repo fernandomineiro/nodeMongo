@@ -130,3 +130,16 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
+
+
+exports.findAllPerson = (req, res) => {
+  Person.find()
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Alguma coisa deu errado",
+      });
+    });
+};
